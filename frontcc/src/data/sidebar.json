@@ -9,14 +9,14 @@
         "icon": "bi bi-journal-text",
         "childrens": [
             {
-                "title": "Mis Cotizaciones",
-                "icon": "bi-info-circle",
-                "path": "/about"
-            },
-            {
                 "title": "Cotizar",
                 "icon": "bi-info-circle",
-                "path": "/about"
+                "path": "/cotizar"
+            },
+            {
+                "title": "Mis Cotizaciones",
+                "icon": "bi-info-circle",
+                "path": "/miscotizaciones"
             }
         ]
     },
