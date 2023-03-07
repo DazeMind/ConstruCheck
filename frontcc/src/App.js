@@ -1,15 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Landing from './views/Landing'
+import Sidebar from './components/Sidebar'
 
 function App() {
   return (
-      <BrowserRouter>
-      <Routes>
-      <Route path="/" element={ <Landing/> } />
-      </Routes>
-    </BrowserRouter>
- 
-  );
+    <div className="main">
+      <Sidebar />
+      <div className="container">
+        <h1 className="title">My React App</h1>
+        <p className="info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <button className="btn">Explore now</button>
+      </div>
+    </div>
+  )
 }
 
-export default App;
+export default App
