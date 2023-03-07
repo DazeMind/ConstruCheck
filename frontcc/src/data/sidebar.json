@@ -1,21 +1,52 @@
-[
+[   
     {
-        "title": "General",
-        "icon": "bi-gear-fill",
+        "title": "Inicio",
+        "icon": "bi-house",
+        "path": "/"
+    },
+    {
+        "title": "Cotización",
+        "icon": "bi bi-journal-text",
         "childrens": [
             {
-                "title": "Home",
-                "icon": "bi-house-fill",
-                "path": "/"
+                "title": "Mis Cotizaciones",
+                "icon": "bi-info-circle",
+                "path": "/about"
             },
             {
+                "title": "Cotizar",
+                "icon": "bi-info-circle",
+                "path": "/about"
+            }
+        ]
+    },
+    {
+        "title": "Pagos",
+        "icon": "bi bi-currency-dollar",
+        "path": "/pagos"
+    },
+    {
+        "title": "Proyectos",
+        "icon": "bi bi-clipboard2-plus",
+        "path": "/pagos"
+    },
+    {
+        "title": "Empleados",
+        "icon": "bi bi-people",
+        "path": "/pagos"
+    },
+    {
+        "title": "General",
+        "icon": "bi-gear",
+        "childrens": [
+            {
                 "title": "About",
-                "icon": "bi-info-circle-fill",
+                "icon": "bi-info-circle",
                 "path": "/about"
             },
             {
                 "title": "Contact",
-                "icon": "bi-phone-fill",
+                "icon": "bi-phone",
                 "childrens": [
                     {
                         "title": "Facebook",
@@ -33,35 +64,13 @@
             },
             {
                 "title": "FAQ",
-                "icon": "bi-question-circle-fill"
-            }
-        ]
-    },
-    {
-        "title": "Account",
-        "icon": "bi-info-circle-fill",
-        "childrens": [
-            {
-                "title": "Login",
-                "path": "/login"
-            },
-            {
-                "title": "Register",
-                "path": "/register"
-            },
-            {
-                "title": "Forgot Password",
-                "path": "/forgot-password"
-            },
-            {
-                "title": "Reset Password",
-                "path": "/reset-password"
+                "icon": "bi-question-circle"
             }
         ]
     },
     {
         "title": "Profile",
-        "icon": "bi-person-fill",
+        "icon": "bi-person",
         "childrens": [
             {
                 "title": "Profile",
@@ -114,12 +123,34 @@
         ]
     },
     {
-        "title": "Support",
-        "icon": "bi-question-circle-fill",
+        "title": "Mi Cuenta XX",
+        "icon": "bi-info-circle",
+        "childrens": [
+            {
+                "title": "Login",
+                "path": "/login"
+            },
+            {
+                "title": "Register",
+                "path": "/register"
+            },
+            {
+                "title": "Forgot Password",
+                "path": "/forgot-password"
+            },
+            {
+                "title": "Reset Password",
+                "path": "/reset-password"
+            }
+        ]
+    },
+    {
+        "title": "Ayuda",
+        "icon": "bi-question-circle",
         "path": "/support"
     },
     {
-        "title": "Report Bug",
+        "title": "¿Algun problema?",
         "icon": "bi-bug",
         "path": "/report-bug"
     }
