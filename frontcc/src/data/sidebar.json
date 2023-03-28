@@ -30,9 +30,9 @@
                 "path": "/agregar/pago"
             },
             {
-                "title": "Gestionar pagos",
+                "title": "Ver pagos",
                 "icon": "bi bi-bank",
-                "path": "/gestionar/pagos"
+                "path": "/ver/pagos"
             }
         ]
     },
@@ -69,7 +69,7 @@
             {
                 "title": "Mis Empleados",
                 "icon": "bi bi-person-video2",
-                "path": "/misempleados"
+                "path": "/ver/empleados"
             }
         ]
     },

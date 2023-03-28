@@ -6,7 +6,7 @@ export default function SidebarItem({item}){
     
     if(item.childrens){
         return (
-            <div className={open ? "sidebar-item open" : "sidebar-item"}>
+            <div className={open ? "sidebar-item open text-light" : "sidebar-item text-light"}>
                 <div className="sidebar-title">
                     <span>
                         { item.icon && <i className={item.icon}></i> }
