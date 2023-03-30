@@ -10,12 +10,15 @@ const endpoint = 'http://127.0.0.1:8000/api/trabajador'
 const AgregarProyecto = () => {
 
   const [nombre,setNombre] = useState('')
+  const [ubicacion,setUbicacion] = useState('')
+  const [nombreInteresado,setNombreInteresado] = useState('')
+  const [correoInteresado,setCorreoInteresado] = useState('')
+  const [telefonoInteresado,setTelefonoInteresado] = useState('')
   const [valorProyecto,setValorProyecto] = useState('')
   const [fechaInicio,setFechaInicio] = useState('')
   const [fechaTermino,setFechaTermino] = useState('')
   const [metros,setMetros] = useState('')
-  const [ubicacion,setUbicacion] = useState('')
-  const [correo,setCorreo] = useState('')
+  
 
   // const navigate = useNavigate()
 
@@ -23,12 +26,14 @@ const AgregarProyecto = () => {
     e.preventDefault()
     await axios.post(endpoint, {
       nombre: nombre,
-      valorProyecto: valorProyecto,
+      ubicacion: ubicacion,
+      nombreInteresado: nombreInteresado,
+      correoInteresado: correoInteresado,
+      telefonoInteresado: telefonoInteresado,
       fechaInicio: fechaInicio,
       fechaTermino: fechaTermino,
-      metros: metros,
-      ubicacion: ubicacion,
-      correo: correo
+      valorProyecto: valorProyecto,
+      metros: metros
       })
       window.location.reload(true);
       alert('Guardado con exito') //Cambiar por un modal
@@ -53,8 +58,16 @@ const AgregarProyecto = () => {
                   <Form.Control value={ubicacion} onChange={(e)=> setUbicacion(e.target.value)} id="ubicacion" placeholder="ej: Av. Grecia & Avenida Marathon, Ñuñoa ..." />
                 </Form.Group>
                 <Form.Group className="mb-3 col-6">
-                  <Form.Label htmlFor="correo">Correo del interesado</Form.Label>
-                  <Form.Control value={correo} onChange={(e)=> setCorreo(e.target.value)} id="correo" placeholder="ej: alcalde@gmail.com ..." />
+                  <Form.Label htmlFor="nombreInteresado">Nombre del interesado</Form.Label>
+                  <Form.Control value={nombreInteresado} onChange={(e)=> setNombreInteresado(e.target.value)} id="correoInteresado" placeholder="ej: alcalde larrain ..." />
+                </Form.Group>
+                <Form.Group className="mb-3 col-6">
+                  <Form.Label htmlFor="correoInteresado">Correo del interesado</Form.Label>
+                  <Form.Control value={correoInteresado} onChange={(e)=> setCorreoInteresado(e.target.value)} id="correoInteresado" placeholder="ej: alcalde@gmail.com ..." />
+                </Form.Group>
+                <Form.Group className="mb-3 col-6">
+                  <Form.Label htmlFor="telefonoInteresado">Telefono del interesado</Form.Label>
+                  <Form.Control value={telefonoInteresado} onChange={(e)=> setTelefonoInteresado(e.target.value)} id="telefonoInteresado" placeholder="ej: 9 12345678 ..." />
                 </Form.Group>
                 <Form.Group className="mb-3 col-6">
                   <Form.Label htmlFor="fechaInicio">Ingrese fecha de inicio</Form.Label>

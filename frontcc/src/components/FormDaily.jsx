@@ -88,31 +88,6 @@ const FormDaily = () => {
                   <Form.Label htmlFor="metrosAvanzados">Metros avanzados</Form.Label>
                   <Form.Control value={metrosAvanzados} onChange={(e)=> setMetrosAvanzados(e.target.value)} id="metrosAvanzados" placeholder=" Cantidad de metros avanzados el dia de hoy ..." />
                 </Form.Group>
-                <Form.Group className="mb-3 col-6">
-                  <Form.Label htmlFor="tareaasignada">Tarea asignada</Form.Label>
-                  <Form.Control value={tarea} onChange={(e)=> setTarea(e.target.value)} id="tareaasignada" disabled/>
-                </Form.Group>
-                <Form.Group className="mb-3 col-6">
-                  <Form.Label htmlFor="diasTrabajados">¿Finalizo la tarea asignada?</Form.Label>
-                  {['radio'].map((type) => (
-                    <div key={`inline-${type}`} className="mb-3">
-                    <Form.Check
-                        inline
-                        label="Si"
-                        name="group3"
-                        type={type}
-                        id={`inline-${type}-1`}
-                    />
-                    <Form.Check
-                        inline
-                        label="No"
-                        name="group3"
-                        type={type}
-                        id={`inline-${type}-2`}
-                    />
-                    </div>
-                ))}                
-                </Form.Group>
               </div>
               <Button type="submit">Guardar</Button>
             </fieldset>
