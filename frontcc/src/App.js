@@ -14,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={ <Landing/> } />
-      <Route path="/inicio" element={ <Inicio/> } />
+      {/* <Route path="/" element={ <Landing/> } /> */}
+      <Route path="/" element={ <Inicio/> } />
       <Route path="/cotizar" element={ <Cotizacion/> } />
       <Route path="/miscotizaciones" element={ <MisCotizaciones/> } />
       <Route path="/agregar/empleado" element={ <AgregarEmpleado/> } />
