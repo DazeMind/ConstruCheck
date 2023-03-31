@@ -9,6 +9,7 @@ import VerCotizacion from "./pages/cotizacion/VerCotizacion"
 import VerEmpleados from "./pages/empleados/VerEmpleados"
 import VerPagos from "./pages/pagos/VerPagos"
 import Inicio from "./pages/Inicio"
+import VerProyectos from "./pages/proyecto/VerProyectos"
 
 function App() {
   return (
@@ -17,13 +18,14 @@ function App() {
       {/* <Route path="/" element={ <Landing/> } /> */}
       <Route path="/" element={ <Inicio/> } />
       <Route path="/cotizar" element={ <Cotizacion/> } />
-      <Route path="/miscotizaciones" element={ <MisCotizaciones/> } />
+      <Route path="/ver/cotizaciones" element={ <MisCotizaciones/> } />
       <Route path="/agregar/empleado" element={ <AgregarEmpleado/> } />
       <Route path="/agregar/pago" element={ <AgregarPagos/> } />
       <Route path="/agregar/proyecto" element={ <AgregarProyecto/> } />
       <Route path="/ver/cotizacion" element={ <VerCotizacion/> } />
       <Route path="/ver/empleados" element={ <VerEmpleados/> } />
       <Route path="/ver/pagos" element={ <VerPagos/> } />
+      <Route path="/ver/proyectos" element={ <VerProyectos/> } />
       </Routes>
     </BrowserRouter>
   );

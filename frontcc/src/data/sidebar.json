@@ -16,7 +16,7 @@
             {
                 "title": "Mis Cotizaciones",
                 "icon": "bi-info-circle",
-                "path": "/miscotizaciones"
+                "path": "/ver/cotizaciones"
             }
         ]
     },
@@ -46,9 +46,9 @@
                 "path": "/agregar/proyecto"
             },
             {
-                "title": "Gestionar proyectos",
+                "title": "Ver proyectos",
                 "icon": "bi bi-clipboard-data",
-                "path": "/gestionar/proyecto"
+                "path": "/ver/proyectos"
             }
         ]
     },
