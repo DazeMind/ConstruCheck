@@ -15,7 +15,7 @@ builder.Services.AddCors(options => options.AddPolicy("allowWebApp",
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ccDbContext>(options =>
     {
-        options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+        options.UseSqlServer(connectionString);
     }
 );
 

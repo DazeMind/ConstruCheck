@@ -1,4 +1,4 @@
-﻿using CCBackend.Models;
+﻿using CCBackend.Modelos;
 using Microsoft.EntityFrameworkCore;
 
 namespace CCBackend
@@ -7,6 +7,11 @@ namespace CCBackend
     {
         public ccDbContext(DbContextOptions<ccDbContext> options): base(options) { }
 
-        public DbSet<casaComercialModel> cc_casa_comercial { get; set; }
+        public DbSet<UserModel> Usuarios { get; set; }
+        public DbSet<WorkersModel> Trabajadores { get; set; }
+        public DbSet<AttendanceModel> Asistencias { get; set; }
+        public DbSet<PaymentsModel> Pagos { get; set; }
+
+
     }
 }

@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\edgar\\Documents\\Proyectos\\Daze\\ConstruCheck\\CCBackend\\CCBackend.csproj": {}
+    "D:\\Proyectos\\ConstruCheck\\CCBackend\\CCBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\edgar\\Documents\\Proyectos\\Daze\\ConstruCheck\\CCBackend\\CCBackend.csproj": {
+    "D:\\Proyectos\\ConstruCheck\\CCBackend\\CCBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\edgar\\Documents\\Proyectos\\Daze\\ConstruCheck\\CCBackend\\CCBackend.csproj",
+        "projectUniqueName": "D:\\Proyectos\\ConstruCheck\\CCBackend\\CCBackend.csproj",
         "projectName": "CCBackend",
-        "projectPath": "C:\\Users\\edgar\\Documents\\Proyectos\\Daze\\ConstruCheck\\CCBackend\\CCBackend.csproj",
+        "projectPath": "D:\\Proyectos\\ConstruCheck\\CCBackend\\CCBackend.csproj",
         "packagesPath": "C:\\Users\\edgar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\edgar\\Documents\\Proyectos\\Daze\\ConstruCheck\\CCBackend\\obj\\",
+        "outputPath": "D:\\Proyectos\\ConstruCheck\\CCBackend\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\edgar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,21 +42,21 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.3, )"
-            },
-            "Pomelo.EntityFrameworkCore.MySql": {
-              "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.4, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -82,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
