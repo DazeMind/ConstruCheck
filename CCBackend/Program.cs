@@ -1,9 +1,8 @@
 using CCBackend;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.OpenApi.Writers;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Cors 
 builder.Services.AddCors(options => options.AddPolicy("allowWebApp",
         builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
@@ -25,6 +24,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ccDbContext>();
+    context.Database.Migrate();
+}
 
 if (app.Environment.IsDevelopment())
 {

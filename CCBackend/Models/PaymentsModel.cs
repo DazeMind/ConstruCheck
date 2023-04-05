@@ -12,6 +12,7 @@ namespace CCBackend.Modelos
     {
         [Key]
         [Column("Payment_Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PaymentId { get; set; }
 
         [Required]
@@ -19,11 +20,11 @@ namespace CCBackend.Modelos
         [ForeignKey("Worker_Id")]
         public int WorkerId { get; set; }
 
-        public virtual WorkersModel? Worker { get; set; }
+        public virtual WorkerModel? Worker { get; set; }
 
         [Required]
         [NotNull]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DisplayFormat(DataFormatString = "{0:DD.MM.YYYY}")]
         public DateTime? Date { get; set; }
 
         [Required(ErrorMessage ="Debe seleccionar una categoria")]
@@ -45,16 +46,14 @@ namespace CCBackend.Modelos
 
         [Required]
         [NotNull]
-        [DefaultValue(1)]
-        public int State { get; set; }
+        public string? State { get; set; }
 
-        [Required]
-        [NotNull]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime Created_at { get; set; }
+        [Column("Created_At")]
+        public DateTime CreatedAt { get; set; }
 
-        [AllowNull]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? Updated_at { get; set; }
+        [Column("Updated_At")]
+        public DateTime UpdatedAt { get; set; }
     }
 }

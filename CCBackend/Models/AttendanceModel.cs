@@ -10,6 +10,7 @@ namespace CCBackend.Modelos
     {
         [Key]
         [Column("Attendance_Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AttendanceId { get; set; }
 
         [Required(ErrorMessage ="Debe seleccionar un trabajador.")]
@@ -18,17 +19,17 @@ namespace CCBackend.Modelos
         public int WorkerId { get; set; }
 
         [Required]
-        public virtual WorkersModel? Worker { get; set; }
+        public virtual WorkerModel? Worker { get; set; }
 
         [AllowNull]
         [DataType(DataType.DateTime)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DisplayFormat(DataFormatString = "{0:DD.MM.YYYY}")]
         [Column("Start_Time")]
         public DateTime? StartTime { get; set; }
 
         [AllowNull]
         [DataType(DataType.DateTime)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DisplayFormat(DataFormatString = "{0:DD.MM.YYYY}")]
         [Column("End_Time")]
         public DateTime? EndTime { get; set; }
 
@@ -38,7 +39,7 @@ namespace CCBackend.Modelos
         
         [AllowNull]
         [DataType(DataType.DateTime)]
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        [DisplayFormat(DataFormatString = "{0:DD.MM.YYYY}")]
         public DateTime? Date { get; set; }
 
         [Required]
@@ -46,13 +47,12 @@ namespace CCBackend.Modelos
         [StringLength(255)]
         public string? Condition { get; set; }
 
-        [Required]
-        [NotNull]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime Created_at { get; set; }
+        [Column("Created_At")]
+        public DateTime CreatedAt { get; set; }
 
-        [AllowNull]
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public DateTime? Updated_at { get; set; }
+        [Column("Updated_At")]
+        public DateTime UpdatedAt { get; set; }
     }
 }

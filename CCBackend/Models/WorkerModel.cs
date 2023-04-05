@@ -4,11 +4,12 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace CCBackend.Modelos
 {
-    [Table("CC_Workers")]
-    public class WorkersModel
+    [Table("CC_Worker")]
+    public class WorkerModel
     {
         [Key]
         [Column("Worker_Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int WorkersId { get; set; }
 
         [Required(ErrorMessage = "Falta ingresar el nombre del trabajador.")]
@@ -75,7 +76,7 @@ namespace CCBackend.Modelos
         public DateTime CreatedAt { get; set; }
         
         [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        [Column("Created_At")]
+        [Column("Updated_At")]
         public DateTime UpdatedAt { get; set; }
         
     }
