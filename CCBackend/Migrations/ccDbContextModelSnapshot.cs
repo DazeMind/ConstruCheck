@@ -22,16 +22,16 @@ namespace CCBackend.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CCBackend.Modelos.AttendanceModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.AsistenciaModel", b =>
                 {
-                    b.Property<int>("AttendanceId")
+                    b.Property<int>("AsistenciaId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Attendance_Id");
+                        .HasColumnName("Asistencia_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AttendanceId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AsistenciaId"));
 
-                    b.Property<string>("Condition")
+                    b.Property<string>("Condicion")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
@@ -41,576 +41,144 @@ namespace CCBackend.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("Created_At");
 
-                    b.Property<DateTime?>("Date")
+                    b.Property<DateTime?>("Fecha")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("EndTime")
+                    b.Property<DateTime?>("FechaInicio")
                         .HasColumnType("datetime2")
-                        .HasColumnName("End_Time");
+                        .HasColumnName("Fecha_Inicio");
 
-                    b.Property<int?>("HoursTotal")
+                    b.Property<DateTime?>("FechaTermino")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Fecha_Termino");
+
+                    b.Property<int?>("TotalHoras")
                         .HasColumnType("int")
-                        .HasColumnName("Hours_Total");
+                        .HasColumnName("Total_Horas");
 
-                    b.Property<DateTime?>("StartTime")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Start_Time");
+                    b.Property<int>("TrabajadorId")
+                        .HasColumnType("int")
+                        .HasColumnName("Trabajador_Id");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("int");
+                    b.HasKey("AsistenciaId");
 
-                    b.HasKey("AttendanceId");
+                    b.HasIndex("TrabajadorId");
 
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("CC_Attendance");
+                    b.ToTable("CC_Asistencia");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.ClientModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.ClienteModel", b =>
                 {
-                    b.Property<int>("ClientId")
+                    b.Property<int>("ClienteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Client_Id");
+                        .HasColumnName("Cliente_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClientId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"));
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Ciudad")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("City")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ClientLastName")
+                    b.Property<string>("ClientApellido")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Client_Last_Name");
+                        .HasColumnName("Cliente_Apellido");
 
-                    b.Property<string>("ClientName")
+                    b.Property<string>("ClienteNombre")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Client_Name");
+                        .HasColumnName("Cliente_Nombre");
 
-                    b.Property<string>("Company")
+                    b.Property<string>("Compania")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<string>("Email")
+                    b.Property<string>("Correo")
                         .HasMaxLength(45)
                         .HasColumnType("nvarchar(45)");
 
-                    b.Property<string>("Membership")
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("Direccion")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int?>("PhoneNo")
-                        .HasColumnType("int")
-                        .HasColumnName("Phone_No");
-
-                    b.Property<int>("State")
+                    b.Property<int>("Estado")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<string>("Membresia")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int?>("NoTelefono")
+                        .HasColumnType("int")
+                        .HasColumnName("No_Telefono");
+
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.HasKey("ClientId");
+                    b.HasKey("ClienteId");
 
-                    b.ToTable("CC_Client");
+                    b.ToTable("CC_Cliente");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.CommerceModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.ComercioModel", b =>
                 {
-                    b.Property<int>("CommerceId")
+                    b.Property<int>("ComercioId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Commerce_Id");
+                        .HasColumnName("Comercio_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommerceId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ComercioId"));
 
-                    b.Property<string>("CommerceDescription")
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("Descripcion")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Commerce_Description");
+                        .HasColumnName("Descripcion");
 
-                    b.Property<string>("CommerceName")
+                    b.Property<string>("NombreComercio")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
-                        .HasColumnName("Commerce_Name");
+                        .HasColumnName("Nombre_Comercio");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.HasKey("CommerceId");
+                    b.HasKey("ComercioId");
 
-                    b.ToTable("CC_Comerce");
+                    b.ToTable("CC_Comercio");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.DailyProyectModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.CotizacionModel", b =>
                 {
-                    b.Property<int>("DailyProyectId")
+                    b.Property<int>("CotizacionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Daily_Proyect_Id");
+                        .HasColumnName("Cotizacion_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DailyProyectId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CotizacionId"));
 
-                    b.Property<string>("AdvancementDescription")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Advancement_Description");
-
-                    b.Property<int>("Attended")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("DailyProyectId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("CC_Daily_Project");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.PaymentsModel", b =>
-                {
-                    b.Property<int>("PaymentId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Payment_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PaymentId"));
-
-                    b.Property<int>("Ammount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Comments")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime?>("Date")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PaymentType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Payment_type");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.Property<string>("Voucher")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("int");
-
-                    b.HasKey("PaymentId");
-
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("CC_Payments");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProductModel", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Product_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"));
-
-                    b.Property<int>("CommerceId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<string>("Link")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ProductDescription")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Product_Description");
-
-                    b.Property<string>("ProductName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Product_Name");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProductId");
-
-                    b.HasIndex("CommerceId");
-
-                    b.ToTable("CC_Product");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectEntryModel", b =>
-                {
-                    b.Property<int>("ProjectEntryId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Entry_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectEntryId"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime?>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProjectEntryId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("CC_Project_Entry");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectExpenditureModel", b =>
-                {
-                    b.Property<int>("ProjectExpenditureId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Expenditure_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectExpenditureId"));
-
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime?>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProjectExpenditureId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("CC_Project_Expenditure");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectModel", b =>
-                {
-                    b.Property<int>("ProjectId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectId"));
-
-                    b.Property<string>("Budget")
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)");
-
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MetersToWork")
-                        .HasColumnType("int")
-                        .HasColumnName("Meters_To_Work");
-
-                    b.Property<string>("MetersWorked")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Meters_Worked");
-
-                    b.Property<string>("Placement")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("ProjectDescription")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Project_Description");
-
-                    b.Property<string>("ProjectName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Project_Name");
-
-                    b.Property<string>("RelatedDocument")
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)")
-                        .HasColumnName("Related_Document");
-
-                    b.Property<string>("Responsible")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Spending")
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("State")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int?>("TotalValue")
-                        .HasColumnType("int")
-                        .HasColumnName("Total_Value");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProjectId");
-
-                    b.HasIndex("ClientId");
-
-                    b.ToTable("CC_Project");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectResponsibleModel", b =>
-                {
-                    b.Property<int>("ProjectResponsibleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Responsible_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectResponsibleId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<int?>("PhoneNo")
-                        .HasColumnType("int")
-                        .HasColumnName("Phone_No");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ResponsibleEmail")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Responsible_Email");
-
-                    b.Property<string>("ResponsibleName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Responsible_Name");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProjectResponsibleId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("CC_Project_Responsible");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectTaskModel", b =>
-                {
-                    b.Property<int>("ProjectTaskId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Taks_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectTaskId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("End_Date");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Start_Date");
-
-                    b.Property<string>("TaskDescription")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Task_Description");
-
-                    b.Property<string>("TaskName")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Task_Name");
-
-                    b.Property<string>("TaskStatus")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.HasKey("ProjectTaskId");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("CC_Project_Task");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectWeekModel", b =>
-                {
-                    b.Property<int>("ProjectWeekId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Project_Week_Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectWeekId"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Created_At");
-
-                    b.Property<int>("MetersDone")
-                        .HasColumnType("int")
-                        .HasColumnName("Meters_Done");
-
-                    b.Property<int>("TasksDone")
-                        .HasColumnType("int")
-                        .HasColumnName("Taks_Done");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Updated_At");
-
-                    b.Property<int>("Week")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProjectWeekId");
-
-                    b.ToTable("CC_Project_Week");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.RateModel", b =>
-                {
-                    b.Property<int>("RateId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RateId"));
-
-                    b.Property<string>("Attachment")
+                    b.Property<string>("Adjunto")
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -622,273 +190,723 @@ namespace CCBackend.Migrations
                     b.Property<DateTime?>("Date")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
-                        .HasColumnName("Start_Time");
+                        .HasColumnName("Fecha_Inicio");
 
                     b.Property<string>("RateName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Rate_Name");
+                        .HasColumnName("Nombre_Cotizacion");
 
-                    b.Property<string>("Responsible")
+                    b.Property<string>("Responsable")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.Property<int?>("Value")
+                    b.Property<int?>("Valor")
                         .HasColumnType("int");
 
-                    b.HasKey("RateId");
+                    b.HasKey("CotizacionId");
 
-                    b.ToTable("CC_Rate");
+                    b.ToTable("CC_Cotizacion");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.UserModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.GastosProyectoModel", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("GastosProyectoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("User_Id");
+                        .HasColumnName("Gastos_Proyecto_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GastosProyectoId"));
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasColumnName("Created_At");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(45)
-                        .HasColumnType("nvarchar(45)");
-
-                    b.Property<string>("JobPosition")
-                        .IsRequired()
+                    b.Property<string>("Description")
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Job_Position");
+                        .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("Rut")
-                        .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                    b.Property<DateTime?>("Fecha")
+                        .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<int>("Monto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("User_Name");
+                    b.HasKey("GastosProyectoId");
 
-                    b.HasKey("UserId");
+                    b.HasIndex("ProyectoId");
 
-                    b.ToTable("CC_Users");
+                    b.ToTable("CC_Gastos_Proyecto");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.WorkerModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.IngresoProyectoModel", b =>
                 {
-                    b.Property<int>("WorkersId")
+                    b.Property<int>("IngresoProyectoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasColumnName("Worker_Id");
+                        .HasColumnName("Ingreso_Proyecto_Id");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("WorkersId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IngresoProyectoId"));
 
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Account_number");
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
 
-                    b.Property<string>("AccountType")
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<DateTime?>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("IngresoProyectoId");
+
+                    b.HasIndex("ProyectoId");
+
+                    b.ToTable("CC_Ingreso_Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.InteresadoProyectoModel", b =>
+                {
+                    b.Property<int>("InteresadoProyectoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Interesado_Proyecto_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("InteresadoProyectoId"));
+
+                    b.Property<string>("CorreoResponsable")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Correo_Responsable");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<int?>("NoTelefono")
+                        .HasColumnType("int")
+                        .HasColumnName("No_Telefono");
+
+                    b.Property<string>("NombreResponsable")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Account_Type");
+                        .HasColumnName("Nombre_Responsable");
 
-                    b.Property<string>("Afp")
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("InteresadoProyectoId");
+
+                    b.HasIndex("ProyectoId");
+
+                    b.ToTable("CC_Interesado_Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.PagoModel", b =>
+                {
+                    b.Property<int>("PagoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Pago_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PagoId"));
+
+                    b.Property<string>("Comentarios")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Comprobante")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("Estado")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("Fecha")
+                        .IsRequired()
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Monto")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TipoPago")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Tipo_Pago");
+
+                    b.Property<int>("TrabajadorId")
+                        .HasColumnType("int")
+                        .HasColumnName("Trabajador_Id");
+
+                    b.Property<int?>("TrabajadoresTrabajadorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("PagoId");
+
+                    b.HasIndex("TrabajadoresTrabajadorId");
+
+                    b.ToTable("CC_Pago");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.ProductoModel", b =>
+                {
+                    b.Property<int>("ProductoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Producto_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductoId"));
+
+                    b.Property<int>("ComercioId")
+                        .HasColumnType("int")
+                        .HasColumnName("Comercio_Id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("DescripcionProducto")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Descripcion_Producto");
+
+                    b.Property<string>("Link")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("NombreProducto")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Nombre_Producto");
+
+                    b.Property<int?>("Precio")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("ProductoId");
+
+                    b.HasIndex("ComercioId");
+
+                    b.ToTable("CC_Productos");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.ProyectoDiarioModel", b =>
+                {
+                    b.Property<int>("ProyectoDiarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Diario_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProyectoDiarioId"));
+
+                    b.Property<int>("Asistencia")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("DescripcionAvanzada")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Descripcion_Avanzada");
+
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    b.Property<int?>("ProyectosProyectoId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrabajadorId")
+                        .HasColumnType("int")
+                        .HasColumnName("Trabajador_Id");
+
+                    b.Property<int?>("TrabajadoresTrabajadorId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("ProyectoDiarioId");
+
+                    b.HasIndex("ProyectosProyectoId");
+
+                    b.HasIndex("TrabajadoresTrabajadorId");
+
+                    b.ToTable("CC_Proyecto_Diario");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.ProyectoModel", b =>
+                {
+                    b.Property<int>("ProyectoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProyectoId"));
+
+                    b.Property<int>("ClienteId")
+                        .HasColumnType("int")
+                        .HasColumnName("Cliente_Id");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("DescripcionProyecto")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Descripcion_Proyecto");
+
+                    b.Property<string>("DocumentacionRelacionada")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)")
+                        .HasColumnName("Documentacion_Relacionada");
+
+                    b.Property<string>("Estado")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime?>("FechaInicio")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Fecha_Inicio");
+
+                    b.Property<DateTime?>("FechaTermino")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Fecha_Termino");
+
+                    b.Property<string>("Gastos")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<string>("Interesado")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("MetersTrabajados")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Metros_Trabajados");
+
+                    b.Property<int?>("Metros")
+                        .HasColumnType("int")
+                        .HasColumnName("Metros");
+
+                    b.Property<string>("NombreProyecto")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Nombre_Proyecto");
+
+                    b.Property<string>("Presupuesto")
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<string>("Ubicacion")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.Property<int?>("ValorTotal")
+                        .HasColumnType("int")
+                        .HasColumnName("Valor_Total");
+
+                    b.HasKey("ProyectoId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.ToTable("CC_Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.SemanaProyectoModel", b =>
+                {
+                    b.Property<int>("SemanaProyectoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Semana_Proyecto_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SemanaProyectoId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<int>("MetrosAvanzados")
+                        .HasColumnType("int")
+                        .HasColumnName("Metros_Avanzados");
+
+                    b.Property<int>("Semana")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TareasRealizadas")
+                        .HasColumnType("int")
+                        .HasColumnName("Tareas_Realizadas");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("SemanaProyectoId");
+
+                    b.ToTable("CC_Semana_Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.TareaProyectoModel", b =>
+                {
+                    b.Property<int>("TareaProyectoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Tarea_Proyecto_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TareaProyectoId"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("Descripcion")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Descripcion");
+
+                    b.Property<string>("EstadoTarea")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Estado_Tarea");
+
+                    b.Property<DateTime?>("FechaInicio")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Fecha_Inicio");
+
+                    b.Property<DateTime?>("FechaTermino")
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Fecha_Termino");
+
+                    b.Property<string>("NombreTarea")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Nombre_Tarea");
+
+                    b.Property<int>("ProyectoId")
+                        .HasColumnType("int")
+                        .HasColumnName("Proyecto_Id");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("TareaProyectoId");
+
+                    b.HasIndex("ProyectoId");
+
+                    b.ToTable("CC_Tareas_Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.TrabajadorModel", b =>
+                {
+                    b.Property<int>("TrabajadorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Trabajador_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TrabajadorId"));
+
+                    b.Property<string>("AFP")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
                         .HasColumnName("AFP");
 
-                    b.Property<string>("Bank")
+                    b.Property<string>("Banco")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<int>("Charges")
+                    b.Property<int>("Cargas")
                         .HasColumnType("int");
+
+                    b.Property<string>("CicloPago")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Ciclo_Pago");
 
                     b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasColumnName("Created_At");
 
-                    b.Property<DateTime>("Dob")
+                    b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2")
-                        .HasColumnName("D_O_B");
+                        .HasColumnName("Fecha_Nacimiento");
 
-                    b.Property<string>("HealthInsurance")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Health_Insurance");
-
-                    b.Property<string>("Job")
+                    b.Property<string>("Funcion")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("PayFrequency")
+                    b.Property<string>("NoCuenta")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Pay_Frequency");
+                        .HasColumnName("No_Cuenta");
 
-                    b.Property<float>("Payment")
-                        .HasColumnType("real");
+                    b.Property<string>("NombreTrabajador")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Nombre_Trabajador");
+
+                    b.Property<string>("PrestacionSalud")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Prestacion_Salud");
 
                     b.Property<string>("Rut")
                         .IsRequired()
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("Size")
+                    b.Property<int>("Sueldo")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Talla")
                         .HasMaxLength(2)
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<string>("TipoCuenta")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)")
+                        .HasColumnName("Tipo_Cuenta");
+
+                    b.Property<DateTime?>("UpdatedAt")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2")
                         .HasColumnName("Updated_At");
 
-                    b.Property<string>("WorkerName")
+                    b.HasKey("TrabajadorId");
+
+                    b.ToTable("CC_Trabajador");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.UsuarioModel", b =>
+                {
+                    b.Property<int>("UsuarioId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Usuario_Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuarioId"));
+
+                    b.Property<string>("Cargo")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Correo")
+                        .IsRequired()
+                        .HasMaxLength(45)
+                        .HasColumnType("nvarchar(45)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Created_At");
+
+                    b.Property<string>("NombreUsuario")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)")
-                        .HasColumnName("Worker_Name");
+                        .HasColumnName("Nombre_Usuario");
 
-                    b.HasKey("WorkersId");
+                    b.Property<string>("Rut")
+                        .IsRequired()
+                        .HasMaxLength(15)
+                        .HasColumnType("nvarchar(15)");
 
-                    b.ToTable("CC_Worker");
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("datetime2")
+                        .HasColumnName("Updated_At");
+
+                    b.HasKey("UsuarioId");
+
+                    b.ToTable("CC_Usuario");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.AttendanceModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.AsistenciaModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.WorkerModel", "Worker")
+                    b.HasOne("CCBackend.Modelos.TrabajadorModel", "Trabajador")
                         .WithMany()
-                        .HasForeignKey("WorkerId")
+                        .HasForeignKey("TrabajadorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Worker");
+                    b.Navigation("Trabajador");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.DailyProyectModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.GastosProyectoModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.ProjectModel", "Project")
+                    b.HasOne("CCBackend.Modelos.ProyectoModel", "Proyecto")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("ProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CCBackend.Modelos.WorkerModel", "Worker")
+                    b.Navigation("Proyecto");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.IngresoProyectoModel", b =>
+                {
+                    b.HasOne("CCBackend.Modelos.ProyectoModel", "Proyecto")
                         .WithMany()
-                        .HasForeignKey("WorkerId")
+                        .HasForeignKey("ProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Project");
-
-                    b.Navigation("Worker");
+                    b.Navigation("Proyecto");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.PaymentsModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.InteresadoProyectoModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.WorkerModel", "Worker")
+                    b.HasOne("CCBackend.Modelos.ProyectoModel", "Proyecto")
                         .WithMany()
-                        .HasForeignKey("WorkerId")
+                        .HasForeignKey("ProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Worker");
+                    b.Navigation("Proyecto");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.ProductModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.PagoModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.CommerceModel", "Commerce")
-                        .WithMany("Products")
-                        .HasForeignKey("CommerceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Commerce");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectEntryModel", b =>
-                {
-                    b.HasOne("CCBackend.Modelos.ProjectModel", "Project")
+                    b.HasOne("CCBackend.Modelos.TrabajadorModel", "Trabajadores")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("TrabajadoresTrabajadorId");
+
+                    b.Navigation("Trabajadores");
+                });
+
+            modelBuilder.Entity("CCBackend.Modelos.ProductoModel", b =>
+                {
+                    b.HasOne("CCBackend.Modelos.ComercioModel", "Comercio")
+                        .WithMany("Productos")
+                        .HasForeignKey("ComercioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Project");
+                    b.Navigation("Comercio");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.ProjectExpenditureModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.ProyectoDiarioModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.ProjectModel", "Project")
+                    b.HasOne("CCBackend.Modelos.ProyectoModel", "Proyectos")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProyectosProyectoId");
 
-                    b.Navigation("Project");
-                });
-
-            modelBuilder.Entity("CCBackend.Modelos.ProjectModel", b =>
-                {
-                    b.HasOne("CCBackend.Modelos.ClientModel", "Client")
+                    b.HasOne("CCBackend.Modelos.TrabajadorModel", "Trabajadores")
                         .WithMany()
-                        .HasForeignKey("ClientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TrabajadoresTrabajadorId");
 
-                    b.Navigation("Client");
+                    b.Navigation("Proyectos");
+
+                    b.Navigation("Trabajadores");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.ProjectResponsibleModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.ProyectoModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.ProjectModel", "Project")
+                    b.HasOne("CCBackend.Modelos.ClienteModel", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("ClienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Project");
+                    b.Navigation("Cliente");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.ProjectTaskModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.TareaProyectoModel", b =>
                 {
-                    b.HasOne("CCBackend.Modelos.ProjectModel", "Project")
+                    b.HasOne("CCBackend.Modelos.ProyectoModel", "Proyecto")
                         .WithMany()
-                        .HasForeignKey("ProjectId")
+                        .HasForeignKey("ProyectoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Project");
+                    b.Navigation("Proyecto");
                 });
 
-            modelBuilder.Entity("CCBackend.Modelos.CommerceModel", b =>
+            modelBuilder.Entity("CCBackend.Modelos.ComercioModel", b =>
                 {
-                    b.Navigation("Products");
+                    b.Navigation("Productos");
                 });
 #pragma warning restore 612, 618
         }
