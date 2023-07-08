@@ -1,0 +1,176 @@
+[   
+    {
+        "title": "Inicio",
+        "icon": "bi-house",
+        "path": "/"
+    },
+    {
+        "title": "Cotización",
+        "icon": "bi bi-journal-text",
+        "childrens": [
+            {
+                "title": "Cotizar",
+                "icon": "bi-info-circle",
+                "path": "/cotizar"
+            },
+            {
+                "title": "Mis Cotizaciones",
+                "icon": "bi-info-circle",
+                "path": "/ver/cotizaciones"
+            }
+        ]
+    },
+    {
+        "title": "Pagos",
+        "icon": "bi bi-currency-dollar",
+        "childrens": [
+            {
+                "title": "Agregar un pago",
+                "icon": "bi bi-cash-coin",
+                "path": "/agregar/pago"
+            },
+            {
+                "title": "Ver pagos",
+                "icon": "bi bi-bank",
+                "path": "/ver/pagos"
+            }
+        ]
+    },
+    {
+        "title": "Proyectos",
+        "icon": "bi bi-clipboard2-plus",
+        "childrens": [
+            {
+                "title": "Agregar un proyecto",
+                "icon": "bi bi-file-earmark-plus",
+                "path": "/agregar/proyecto"
+            },
+            {
+                "title": "Ver proyectos",
+                "icon": "bi bi-clipboard-data",
+                "path": "/ver/proyectos"
+            }
+        ]
+    },
+    {
+        "title": "Empleados",
+        "icon": "bi bi-people",
+        "childrens": [
+            {
+                "title": "Añadir",
+                "icon": "bi bi-person-plus",
+                "path": "/agregar/empleado"
+            },
+            {
+                "title": "Gestionar",
+                "icon": "bi bi-person-lines-fill",
+                "path": "/gestionar/empleado"
+            },
+            {
+                "title": "Mis Empleados",
+                "icon": "bi bi-person-video2",
+                "path": "/ver/empleados"
+            }
+        ]
+    },
+    {
+        "title": "General XX",
+        "icon": "bi-gear",
+        "childrens": [
+            {
+                "title": "About",
+                "icon": "bi-info-circle",
+                "path": "/about"
+            },
+            {
+                "title": "Contact",
+                "icon": "bi-phone",
+                "childrens": [
+                    {
+                        "title": "Facebook",
+                        "icon": "bi-facebook"
+                    },
+                    {
+                        "title": "Twitter",
+                        "icon": "bi-twitter"
+                    },
+                    {
+                        "title": "Instagram",
+                        "icon": "bi-instagram"
+                    }
+                ]
+            },
+            {
+                "title": "FAQ",
+                "icon": "bi-question-circle"
+            }
+        ]
+    },
+    {
+        "title": "Advance XX",
+        "icon": "bi-view-list",
+        "childrens": [
+            {
+                "title": "Search",
+                "path": "/search"
+            },
+            {
+                "title": "History",
+                "path": "/history"   
+            }
+        ]
+    },
+    {
+        "title": "Mi Cuenta XX",
+        "icon": "bi-info-circle",
+        "childrens": [
+            {
+                "title": "Login",
+                "path": "/login"
+            },
+            {
+                "title": "Register",
+                "path": "/register"
+            },
+            {
+                "title": "Forgot Password",
+                "path": "/forgot-password"
+            },
+            {
+                "title": "Reset Password",
+                "path": "/reset-password"
+            }
+        ]
+    },
+    {
+        "title": "Perfil",
+        "icon": "bi bi-person-circle",
+        "childrens": [
+            {
+                "title": "Mi perfil",
+                "icon": "bi bi-person",
+                "path": "/profile"
+            },
+            {
+                "title": "Configuracion",
+                "icon": "bi bi-gear",
+                "path": "/configuracion/cuenta"
+            },
+            {
+                "title": "Cerrar Sesion",
+                "icon": "bi bi-box-arrow-right",
+                "path": "/logout"
+            }
+        ]
+    },
+    {
+        "title": "Ayuda",
+        "icon": "bi-question-circle",
+        "path": "/support"
+    },
+    {
+        "title": "¿Algun problema?",
+        "icon": "bi-bug",
+        "path": "/report-bug"
+    }
+]
