@@ -2,7 +2,7 @@
     {
         "title": "Inicio",
         "icon": "bi-house",
-        "path": "/inicio"
+        "path": "/"
     },
     {
         "title": "Cotización",

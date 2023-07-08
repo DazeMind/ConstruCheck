@@ -1,40 +1,22 @@
+import React,{useEffect, useState} from 'react';
 import Table from 'react-bootstrap/Table';
 import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
+//const endpoint = 'https://api.checkub.cl/api'
+const endpoint = 'http://127.0.0.1:8000/api'
 
 function VerProyectos() {
 
-  const proyectos = [
-    {
-      id: 1,
-      nombre: 'Plaza Santa Rosa',
-      fechaInicio: '2022-02-11',
-      fechaTermino: '2023-02-11',
-      metrosTotales: 3000,
-      valorTotal: 12000000,
-      interesado: 'Alcalde Juanito Perez',
-      estado: 'En Proceso'
-    },
-    {
-      id: 2,
-      nombre: 'Edificio Los Pinos',
-      fechaInicio: '2022-01-01',
-      fechaTermino: '2023-01-01',
-      metrosTotales: 5000,
-      valorTotal: 20000000,
-      interesado: 'Inversiones La Serena',
-      estado: 'Finalizado'
-    },
-    {
-      id: 3,
-      nombre: 'Casa Valle del Sol',
-      fechaInicio: '2022-03-01',
-      fechaTermino: '2022-08-01',
-      metrosTotales: 1500,
-      valorTotal: 8000000,
-      interesado: 'Familia González',
-      estado: 'En Proceso'
-    }
-  ];
+  const [proyectos, setProyectos] = useState( [] ) 
+
+  useEffect ( ()=> {
+    getAllProyectos()
+  },[])
+
+  const getAllProyectos = async () => {
+    const response = await axios.get(`${endpoint}/trabajadores`) 
+    setProyectos(response.data)
+  }
 
   return (
     <div className="main">
@@ -57,7 +39,7 @@ function VerProyectos() {
           <tbody>
             {proyectos.map((proyecto) => (
               <tr key={proyecto.id}>
-                <td><button className='btn btn-primary'>Ver Más</button></td>
+                <td><a href="/ver/proyecto"><button className='btn btn-primary'>Ver Más</button></a></td>
                 <td>{proyecto.id}</td>
                 <td>{proyecto.nombre}</td>
                 <td>{proyecto.fechaInicio}</td>

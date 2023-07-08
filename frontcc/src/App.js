@@ -10,6 +10,7 @@ import VerEmpleados from "./pages/empleados/VerEmpleados"
 import VerPagos from "./pages/pagos/VerPagos"
 import Inicio from "./pages/Inicio"
 import VerProyectos from "./pages/proyecto/VerProyectos"
+import VerProyecto from "./pages/proyecto/VerProyecto"
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       <Route path="/ver/empleados" element={ <VerEmpleados/> } />
       <Route path="/ver/pagos" element={ <VerPagos/> } />
       <Route path="/ver/proyectos" element={ <VerProyectos/> } />
+      <Route path="/ver/proyecto" element={ <VerProyecto/> } />
       </Routes>
     </BrowserRouter>
   );
